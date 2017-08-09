@@ -16,7 +16,8 @@ import ("net/http"
 var store *sessions.CookieStore
 type Config struct {
     cookiePassword  string `json:"cookiePassword"`
-    RootURL  string `json:"rootURL"`
+    RootURL         string `json:"rootURL"`
+    Port            string `json:"port"`
 }
 var config Config
 
@@ -55,7 +56,7 @@ func main() {
     http.HandleFunc("/login", loginHandler)
     http.HandleFunc("/logout", logoutHandler)
     http.HandleFunc("/protectedpage", authenticatePage(protectedPageHandler))
-    http.ListenAndServe(":8080", nil)
+    http.ListenAndServe(config.Port, nil)
 }
 
 

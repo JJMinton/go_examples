@@ -16,7 +16,9 @@ import ("net/http"
 //Global vars
 type Config struct {
     RootURL  string `json:"rootURL"`
+    Port string `json:"port"`
 }
+
 var config Config
 
 // Construction config with credentials using init
@@ -61,7 +63,7 @@ func main() {
     http.HandleFunc("/", rootHandler)
     http.HandleFunc("/auth/google/login", googleLoginHandler)
     http.HandleFunc(googleCred.Callback, googleCallbackHandler)
-    http.ListenAndServe(":8080", nil)
+    http.ListenAndServe(config.Port, nil)
 }
 
 
