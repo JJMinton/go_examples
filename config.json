@@ -1,3 +1,4 @@
 {"cookiePassword": "36jaldsknfskjbdslk026118361",
- "rootURL": "http://localhost:8080"
+ "rootURL": "http://localhost:8080",
+ "port": ":8080"
 }
